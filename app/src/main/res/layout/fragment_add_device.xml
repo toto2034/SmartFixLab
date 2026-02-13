@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_add_device_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.adddevice.AddDeviceFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Titolo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nuovo Dispositivo"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_change_mode"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cambia Modalità (Vendita/Riparazione)"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Tipo Dispositivo -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_tipo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tipo Dispositivo"
+            android:layout_marginBottom="12dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_tipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Marca -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_marca"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Marca"
+            android:layout_marginBottom="12dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/et_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Modello -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_modello"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Modello"
+            android:layout_marginBottom="12dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/et_modello"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Colore -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_colore"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Colore"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_colore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Memoria GB -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_memoria"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Memoria (GB)"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_memoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Prezzo Acquisto -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_prezzo_acquisto"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prezzo di Acquisto (€)"
+            app:prefixText="€"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_prezzo_acquisto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Prezzo Vendita -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_prezzo_vendita"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prezzo di Vendita (€)"
+            app:prefixText="€"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_prezzo_vendita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Prezzo Riparazione (Visibile in modalità Riparazione) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_prezzo_riparazione"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prezzo Riparazione (€)"
+            app:prefixText="€"
+            android:visibility="gone"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_prezzo_riparazione"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Data di Affido (Visibile in modalità Riparazione) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_data_affido"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Data di Affido"
+            android:visibility="gone"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_data_affido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="true"
+                android:cursorVisible="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Stato -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_stato"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Stato"
+            android:layout_marginBottom="12dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_stato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Tipo Display (visibile per Phone/Tablet/Computer) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_display"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tipo Display"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_display"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Pollici (visibile per Tablet) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_pollici"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pollici"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_pollici"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Processore (visibile per Computer) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_processore"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Processore"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_processore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- RAM GB (visibile per Computer) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_ram"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="RAM (GB)"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_ram"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- GPU (visibile per Computer) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_gpu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="GPU"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_gpu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Descrizione (visibile per Accessori) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_descrizione"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descrizione"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_descrizione"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="3"
+                android:gravity="top" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Data di Acquisto -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_data_acquisto"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Data di Acquisto"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_data_acquisto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="true"
+                android:cursorVisible="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Data di Rivendita -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_data_rivendita"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Data di Rivendita (opzionale)"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_data_rivendita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="true"
+                android:cursorVisible="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Pulsante Salva -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_salva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salva Dispositivo"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</ScrollView>

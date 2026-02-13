@@ -3,19 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_transform">
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="it.unisa.smartfixlab.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_transform"
         android:name="it.unisa.smartfixlab.ui.transform.TransformFragment"
         android:label="@string/menu_transform"
-        tools:layout="@layout/fragment_transform" />
+        tools:layout="@layout/fragment_transform">
+        <action
+            android:id="@+id/action_nav_transform_to_addDeviceFragment"
+            app:destination="@id/nav_add_device" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_reflow"
-        android:name="it.unisa.smartfixlab.ui.reflow.ReflowFragment"
-        android:label="@string/menu_reflow"
-        tools:layout="@layout/fragment_reflow" />
+        android:id="@+id/nav_orders"
+        android:name="it.unisa.smartfixlab.ui.orders.OrdersFragment"
+        android:label="Ordini in Arrivo"
+        tools:layout="@layout/fragment_orders">
+        <action
+            android:id="@+id/action_nav_orders_to_nav_order_details"
+            app:destination="@id/nav_order_details" />
+        <action
+            android:id="@+id/action_nav_orders_to_nav_add_order"
+            app:destination="@id/nav_add_order" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_order_details"
+        android:name="it.unisa.smartfixlab.ui.orders.OrderDetailsFragment"
+        android:label="Dettagli Ordine"
+        tools:layout="@layout/fragment_order_details">
+        <argument
+            android:name="order"
+            app:argType="it.unisa.smartfixlab.ui.bean.Order" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_add_order"
+        android:name="it.unisa.smartfixlab.ui.orders.AddOrderFragment"
+        android:label="Nuovo Ordine"
+        tools:layout="@layout/fragment_add_order" />
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -28,4 +61,16 @@
         android:name="it.unisa.smartfixlab.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_add_device"
+        android:name="it.unisa.smartfixlab.ui.adddevice.AddDeviceFragment"
+        android:label="Aggiungi Dispositivo"
+        tools:layout="@layout/fragment_add_device">
+        <argument
+            android:name="device_to_edit"
+            app:argType="it.unisa.smartfixlab.ui.bean.Device"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>

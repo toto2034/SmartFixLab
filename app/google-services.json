@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "141929254532",
+    "project_id": "smartfix-lab-93fa5",
+    "storage_bucket": "smartfix-lab-93fa5.firebasestorage.app",
+    "firebase_url": "https://smartfix-lab-93fa5-default-rtdb.europe-west1.firebasedatabase.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141929254532:android:4ad28f2a22c7a987e67cd1",
+        "android_client_info": {
+          "package_name": "it.unisa.smartfixlab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWVWZy80Mi3_6FNAzbCtxh0an_yTCMPuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

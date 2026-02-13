@@ -31,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.appBarMain.toolbar);
         if (binding.appBarMain.fab != null) {
-            binding.appBarMain.fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).setAnchorView(R.id.fab).show());
+            binding.appBarMain.fab.setOnClickListener(view -> {
+                NavController fabNavController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                fabNavController.navigate(R.id.nav_add_device);
+            });
         }
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
         assert navHostFragment != null;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
         if (navigationView != null) {
             mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_transform, R.id.nav_reflow, R.id.nav_slideshow, R.id.nav_settings)
+                    R.id.nav_home, R.id.nav_transform, R.id.nav_reflow, R.id.nav_slideshow, R.id.nav_settings)
                     .setOpenableLayout(binding.drawerLayout)
                     .build();
             NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
@@ -51,11 +53,23 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = binding.appBarMain.contentMain.bottomNavView;
         if (bottomNavigationView != null) {
             mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_transform, R.id.nav_reflow, R.id.nav_slideshow)
+                    R.id.nav_home, R.id.nav_transform, R.id.nav_reflow)
                     .build();
             NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
             NavigationUI.setupWithNavController(bottomNavigationView, navController);
         }
+
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            boolean isDeviceList = destination.getId() == R.id.nav_transform;
+
+            if (binding.appBarMain.fab != null) {
+                if (isDeviceList) {
+                    binding.appBarMain.fab.show();
+                } else {
+                    binding.appBarMain.fab.hide();
+                }
+            }
+        });
     }
 
     @Override

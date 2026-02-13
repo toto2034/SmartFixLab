@@ -7,4 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- New Brand Colors -->
+    <color name="celeste">#03A9F4</color>
+    <color name="celeste_light">#E1F5FE</color> <!-- Very light for card background -->
+    <color name="celeste_dark">#0288D1</color>
+    
+    <color name="arancione">#FF9800</color>
+    <color name="arancione_light">#FFF3E0</color> <!-- Very light for card background -->
+    <color name="arancione_dark">#F57C00</color>
+
+    <color name="verde">#4CAF50</color>
+    <color name="verde_light">#E8F5E9</color> <!-- Very light for card background -->
+    <color name="verde_dark">#388E3C</color>
 </resources>
